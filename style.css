@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.search-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.search-box input[type="text"] {
+    width: 80%;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.search-engine-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-engine-options label {
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.search-engine-options select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.site-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.site-options input[type="text"],
+.site-options select {
+    padding: 10px;
+    width: 45%;
+    font-size: 16px;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-options {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.search-options label {
+    display: block;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.file-type-options,
+.dork-options {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.file-type-options label,
+.dork-options label {
+    color: #ffffff;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.custom-file-type {
+    display: none;
+}
+
+.search-button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.dark-input {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #ffffff;
+}

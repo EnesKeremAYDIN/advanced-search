@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelişmiş Google Dork Dosya Arama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Gelişmiş Google Dork Dosya Arama</h1>
+
+        <div class="search-box">
+            <input type="text" id="searchKeywords" class="dark-input" placeholder="Anahtar kelimeleri girin...">
+        </div>
+        
+        <div class="search-engine-options">
+            <label>Arama motorunu seçin:</label>
+            <select id="searchEngine" class="dark-input">
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="duckduckgo">DuckDuckGo</option>
+            </select>
+        </div>
+
+        <div class="site-options">
+            <input type="text" id="siteName" class="dark-input" placeholder="Site adresi girin (isteğe bağlı)">
+            <select id="siteSuggestions" class="dark-input" onchange="selectSuggestedSite()">
+                <option value="">-- Popüler sitelerden seçin --</option>
+                <option value="github.com">GitHub</option>
+                <option value="gitlab.com">GitLab</option>
+                <option value="drive.google.com">Google Drive</option>
+                <option value="yadi.sk">Yandex Disk</option>
+                <option value="mega.nz">Mega.nz</option>
+                <option value="facebook.com">Facebook</option>
+                <option value="twitter.com">Twitter</option>
+                <option value="instagram.com">Instagram</option>
+                <option value="linkedin.com">LinkedIn</option>
+            </select>
+        </div>
+
+        <div class="search-options">
+            <label>Dosya türü seçin (isteğe bağlı):</label>
+            <div class="file-type-options">
+                <label><input type="radio" name="fileType" value="pdf"> PDF</label>
+                <label><input type="radio" name="fileType" value="docx"> DOCX</label>
+                <label><input type="radio" name="fileType" value="pptx"> PPTX</label>
+                <label><input type="radio" name="fileType" value="xlsx"> EXCEL</label>
+                <label><input type="radio" name="fileType" value="txt"> TXT</label>
+                <label><input type="radio" name="fileType" value="csv"> CSV</label>
+                <label><input type="radio" name="fileType" value="xml"> XML</label>
+                <label><input type="radio" name="fileType" value="json"> JSON</label>
+                <label><input type="radio" name="fileType" value="custom"> Özel</label>
+            </div>
+
+            <div class="custom-file-type" id="customFileTypeInput">
+                <input type="text" id="customFileType" class="dark-input" placeholder="Özel dosya uzantısını girin...">
+            </div>
+        </div>
+
+        <div class="search-options">
+            <label>Google Dork Seçenekleri:</label>
+            <div class="dork-options">
+                <label><input type="checkbox" id="inurl"> inurl (URL'de ara)</label>
+                <label><input type="checkbox" id="intitle"> intitle (Başlıkta ara)</label>
+                <label><input type="checkbox" id="intext"> intext (Sayfa içeriğinde ara)</label>
+                <label><input type="checkbox" id="cache"> cache (Önbelleğe alınmış sayfa)</label>
+                <label><input type="checkbox" id="related"> related (İlgili sayfaları bul)</label>
+                <label><input type="checkbox" id="allintext"> allintext (Metinde tüm kelimeleri ara)</label>
+                <label><input type="checkbox" id="allintitle"> allintitle (Başlıkta tüm kelimeleri ara)</label>
+                <label><input type="checkbox" id="info"> info (Sayfa hakkında bilgi)</label>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <button class="search-button" onclick="performSearch()">Arama Yap</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
