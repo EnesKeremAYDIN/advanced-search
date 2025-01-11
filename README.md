@@ -12,7 +12,7 @@ A web-based advanced search tool designed to provide users with flexible, dynami
 
 1. **Clone or Download** the repository:
    ```bash
-   git clone https://github.com/yourusername/advanced-search.git
+   git clone https://github.com/EnesKeremAYDIN/advanced-search.git
    cd advanced-search
    ```
 
