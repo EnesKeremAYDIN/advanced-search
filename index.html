@@ -1,86 +1,155 @@
 <!DOCTYPE html>
-<html lang="tr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arama Motorlarında Gelişmi Arama Arayüzü</title>
+    <title>Advanced Search Interface for Search Engines</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <div class="container">
-        <h1>Arama Motorlarında Gelişmi Arama</h1>
+        <header>
+            <h1>Advanced Search Engine Interface</h1>
+        </header>
+        <main>
+            <section class="search-box">
+                <input type="text" id="searchKeywords" class="dark-input" placeholder="Enter your search keywords...">
+                <div class="search-options-row">
+                    <label><input type="checkbox" id="exactPhrase"> Search exact phrase</label>
+                    <label><input type="checkbox" id="excludeWords"> Exclude words</label>
+                    <div id="excludeWordsInput" class="hidden">
+                        <input type="text" class="dark-input" id="wordsToExclude" placeholder="Words to exclude (comma separated)">
+                    </div>
+                </div>
+            </section>
+            <section class="search-engine-options">
+                <label for="searchEngine">Select search engine:</label>
+                <select id="searchEngine" class="dark-input">
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="duckduckgo">DuckDuckGo</option>
+                    <option value="yandex">Yandex</option>
+                    <option value="baidu">Baidu</option>
+                </select>
+            </section>
+            <section class="site-options">
+                <div class="site-input-group">
+                    <input type="text" id="siteName" class="dark-input" placeholder="Enter website URL (optional)">
+                    <select id="siteSuggestions" class="dark-input" onchange="selectSuggestedSite()">
+                        <option value="">-- Select from popular sites --</option>
+                        <option value="github.com">GitHub</option>
+                        <option value="gitlab.com">GitLab</option>
+                        <option value="drive.google.com">Google Drive</option>
+                        <option value="yadi.sk">Yandex Disk</option>
+                        <option value="mega.nz">Mega.nz</option>
+                        <option value="facebook.com">Facebook</option>
+                        <option value="twitter.com">Twitter</option>
+                        <option value="instagram.com">Instagram</option>
+                        <option value="linkedin.com">LinkedIn</option>
+                        <option value="reddit.com">Reddit</option>
+                        <option value="stackoverflow.com">Stack Overflow</option>
+                        <option value="medium.com">Medium</option>
+                    </select>
+                </div>
+            </section>
+            <section class="search-options">
+                <div class="file-type-section">
+                    <h3>Select File Type (optional):</h3>
+                    <div class="file-type-options">
+                        <div class="file-type-category">
+                            <h4>Documents</h4>
+                            <label><input type="radio" name="fileType" value="pdf"> PDF</label>
+                            <label><input type="radio" name="fileType" value="docx"> DOCX</label>
+                            <label><input type="radio" name="fileType" value="doc"> DOC</label>
+                            <label><input type="radio" name="fileType" value="pptx"> PPTX</label>
+                            <label><input type="radio" name="fileType" value="ppt"> PPT</label>
+                            <label><input type="radio" name="fileType" value="xlsx"> XLSX</label>
+                            <label><input type="radio" name="fileType" value="xls"> XLS</label>
+                        </div>
+                        <div class="file-type-category">
+                            <h4>Data & Code</h4>
+                            <label><input type="radio" name="fileType" value="txt"> TXT</label>
+                            <label><input type="radio" name="fileType" value="csv"> CSV</label>
+                            <label><input type="radio" name="fileType" value="xml"> XML</label>
+                            <label><input type="radio" name="fileType" value="json"> JSON</label>
+                            <label><input type="radio" name="fileType" value="sql"> SQL</label>
+                            <label><input type="radio" name="fileType" value="py"> Python</label>
+                            <label><input type="radio" name="fileType" value="js"> JavaScript</label>
+                        </div>
+                        <div class="file-type-category">
+                            <h4>Media</h4>
+                            <label><input type="radio" name="fileType" value="jpg"> JPG</label>
+                            <label><input type="radio" name="fileType" value="png"> PNG</label>
+                            <label><input type="radio" name="fileType" value="gif"> GIF</label>
+                            <label><input type="radio" name="fileType" value="mp4"> MP4</label>
+                            <label><input type="radio" name="fileType" value="mp3"> MP3</label>
+                        </div>
+                        <div class="file-type-category">
+                            <h4>Archives</h4>
+                            <label><input type="radio" name="fileType" value="zip"> ZIP</label>
+                            <label><input type="radio" name="fileType" value="rar"> RAR</label>
+                            <label><input type="radio" name="fileType" value="7z"> 7Z</label>
+                            <label><input type="radio" name="fileType" value="tar"> TAR</label>
+                            <label><input type="radio" name="fileType" value="gz"> GZ</label>
+                        </div>
+                        <div class="file-type-category">
+                            <h4>Other</h4>
+                            <label><input type="radio" name="fileType" value="custom"> Custom</label>
+                        </div>
+                    </div>
 
-        <div class="search-box">
-            <input type="text" id="searchKeywords" class="dark-input" placeholder="Anahtar kelimeleri girin...">
-        </div>
-        
-        <div class="search-engine-options">
-            <label>Arama motorunu seçin:</label>
-            <select id="searchEngine" class="dark-input">
-                <option value="google">Google</option>
-                <option value="bing">Bing</option>
-                <option value="duckduckgo">DuckDuckGo</option>
-            </select>
-        </div>
+                    <div class="custom-file-type" id="customFileTypeInput">
+                        <input type="text" id="customFileType" class="dark-input" placeholder="Enter custom file extension...">
+                    </div>
+                </div>
+            </section>
+            <section class="search-options">
+                <div class="dork-section">
+                    <h3>Advanced Search Options:</h3>
+                    <div class="dork-options">
+                        <div class="dork-column">
+                            <h4>Content Search</h4>
+                            <label><input type="checkbox" id="inurl"> inurl (Search in URL)</label>
+                            <label><input type="checkbox" id="intitle"> intitle (Search in title)</label>
+                            <label><input type="checkbox" id="intext"> intext (Search in content)</label>
+                            <label><input type="checkbox" id="allintext"> allintext (All words in content)</label>
+                            <label><input type="checkbox" id="allintitle"> allintitle (All words in title)</label>
+                        </div>
+                        <div class="dork-column">
+                            <h4>Site Information</h4>
+                            <label><input type="checkbox" id="cache"> cache (Cached page)</label>
+                            <label><input type="checkbox" id="related"> related (Find related pages)</label>
+                            <label><input type="checkbox" id="info"> info (Page information)</label>
+                            <label><input type="checkbox" id="link"> link (Pages linking to URL)</label>
+                            <label><input type="checkbox" id="before"> before (Pages before date)</label>
+                            <label><input type="checkbox" id="after"> after (Pages after date)</label>
+                        </div>
+                        <div class="dork-column">
+                            <h4>Technical Filters</h4>
+                            <label><input type="checkbox" id="ext"> ext (File extension)</label>
+                            <label><input type="checkbox" id="loc"> loc (Geographic location)</label>
+                            <label><input type="checkbox" id="site"> site (Specific website)</label>
+                            <label><input type="checkbox" id="define"> define (Word definition)</label>
+                        </div>
+                    </div>
 
-        <div class="site-options">
-            <input type="text" id="siteName" class="dark-input" placeholder="Site adresi girin (isteğe bağlı)">
-            <select id="siteSuggestions" class="dark-input" onchange="selectSuggestedSite()">
-                <option value="">-- Popüler sitelerden seçin --</option>
-                <option value="github.com">GitHub</option>
-                <option value="gitlab.com">GitLab</option>
-                <option value="drive.google.com">Google Drive</option>
-                <option value="yadi.sk">Yandex Disk</option>
-                <option value="mega.nz">Mega.nz</option>
-                <option value="facebook.com">Facebook</option>
-                <option value="twitter.com">Twitter</option>
-                <option value="instagram.com">Instagram</option>
-                <option value="linkedin.com">LinkedIn</option>
-            </select>
-        </div>
+                    <div class="date-filters hidden" id="dateFilters">
+                        <div class="date-input-group">
+                            <input type="date" id="beforeDate" class="dark-input">
+                            <input type="date" id="afterDate" class="dark-input">
+                        </div>
+                    </div>
 
-        <div class="search-options">
-            <label>Dosya türü seçin (isteğe bağlı):</label>
-            <div class="file-type-options">
-                <label><input type="radio" name="fileType" value="pdf"> PDF</label>
-                <label><input type="radio" name="fileType" value="docx"> DOCX</label>
-                <label><input type="radio" name="fileType" value="pptx"> PPTX</label>
-                <label><input type="radio" name="fileType" value="xlsx"> EXCEL</label>
-                <label><input type="radio" name="fileType" value="txt"> TXT</label>
-                <label><input type="radio" name="fileType" value="csv"> CSV</label>
-                <label><input type="radio" name="fileType" value="xml"> XML</label>
-                <label><input type="radio" name="fileType" value="json"> JSON</label>
-                <label><input type="radio" name="fileType" value="custom"> Özel</label>
-            </div>
-
-            <div class="custom-file-type" id="customFileTypeInput">
-                <input type="text" id="customFileType" class="dark-input" placeholder="Özel dosya uzantısını girin...">
-            </div>
-        </div>
-
-        <div class="search-options">
-            <label>Google Dork Seçenekleri:</label>
-            <div class="dork-options">
-                <label><input type="checkbox" id="inurl"> inurl (URL'de ara)</label>
-                <label><input type="checkbox" id="intitle"> intitle (Başlıkta ara)</label>
-                <label><input type="checkbox" id="intext"> intext (Sayfa içeriğinde ara)</label>
-                <label><input type="checkbox" id="cache"> cache (Önbelleğe alınmış sayfa)</label>
-                <label><input type="checkbox" id="related"> related (İlgili sayfaları bul)</label>
-                <label><input type="checkbox" id="allintext"> allintext (Metinde tüm kelimeleri ara)</label>
-                <label><input type="checkbox" id="allintitle"> allintitle (Başlıkta tüm kelimeleri ara)</label>
-                <label><input type="checkbox" id="info"> info (Sayfa hakkında bilgi)</label>
-            </div>
-        </div>
-
-        <div class="search-box">
-            <button class="search-button" onclick="performSearch()">Arama Yap</button>
-        </div>
+                    <div class="location-filter hidden" id="locationFilter">
+                        <input type="text" id="location" class="dark-input" placeholder="Enter location (e.g., country, city)">
+                    </div>
+                </div>
+            </section>
+            <section class="search-box">
+                <button class="search-button" onclick="performSearch()">Search</button>
+            </section>
+        </main>
     </div>
-
     <script src="script.js"></script>
 </body>
-
 </html>
