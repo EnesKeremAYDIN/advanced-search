@@ -1,6 +1,6 @@
 # Advanced Search
 
-A web-based advanced search tool designed to provide users with flexible, dynamic search options for customized search experiences.
+Web-based advanced search tool designed to provide users with flexible, dynamic search options for customized search experiences.
 
 ## Features
 
